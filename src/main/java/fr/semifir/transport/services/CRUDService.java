@@ -1,6 +1,5 @@
 package fr.semifir.transport.services;
 
-import fr.semifir.transport.repositories.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -16,7 +15,7 @@ import java.util.Optional;
 public class CRUDService<T> {
 
     @Autowired
-    GenericRepository<T, String> repository;
+    MongoRepository<T, String> repository;
 
     public <S extends T> List<S> saveAll(Iterable<S> iterable) {
         return repository.saveAll(iterable);
