@@ -1,22 +1,19 @@
 package fr.semifir.transport.services;
 
-import fr.semifir.transport.repositories.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public class CRUDService<T> {
 
     @Autowired
-    GenericRepository<T, String> repository;
+    MongoRepository<T, String> repository;
 
     public <S extends T> List<S> saveAll(Iterable<S> iterable) {
         return repository.saveAll(iterable);
